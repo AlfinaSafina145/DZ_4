@@ -1,29 +1,26 @@
 ﻿using System;
-namespace Task5_1
+namespace Task5_2
 {
     class Program
     {
-        public static int GetMax(int a, int b)
+        public static void Change(ref int a, ref int b)
         {
-            if (a > b)
-            {
-                return a;
-            }
-            else
-            {
-                return b;
-            }
+            int t = a;
+            a = b;
+            b = t;
         }
         static void Main(string[] args)
         {
+            Console.WriteLine("Упражнение 5.2");
             Console.Write("Введите первое число: ");
-            int num1 = int.Parse(Console.ReadLine());
+            int x = int.Parse(Console.ReadLine());
             Console.Write("Введите второе число: ");
-            int num2 = int.Parse(Console.ReadLine());
-            int result = GetMax(num1, num2);
-            Console.WriteLine($"Наибольшее число из {num1} и {num2} равно: {result}");
-            Console.ReadKey();
+            int y = int.Parse(Console.ReadLine());
+            Console.WriteLine($"До вызова метода x = {x}, y = {y}");
+            Change(ref x, ref y);
+            Console.WriteLine($"После вызова метода x = {x}, y = {y}");
         }
+
     }    
 }
 
