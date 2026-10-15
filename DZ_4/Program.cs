@@ -1,28 +1,36 @@
 ﻿using System;
-namespace Task5_1
+namespace TaskDZ1
 {
     class Program
     {
-        public static int GetMax(int a, int b)
+        public static int NOD(int a, int b)
         {
-            if (a > b)
+            while (b != 0)
             {
-                return a;
+                int temp = b;
+                b = a % b;
+                a = temp;
             }
-            else
-            {
-                return b;
-            }
+            return a;
+        }
+        public static int NOD(int a, int b, int c)
+        {
+            int first_nod = NOD(a, b);
+            return NOD(first_nod, c); 
         }
         static void Main(string[] args)
         {
-            Console.Write("Введите первое число: ");
-            int num1 = int.Parse(Console.ReadLine());
-            Console.Write("Введите второе число: ");
-            int num2 = int.Parse(Console.ReadLine());
-            int result = GetMax(num1, num2);
-            Console.WriteLine($"Наибольшее число из {num1} и {num2} равно: {result}");
-            Console.ReadKey();
+            Console.WriteLine("Дз 5.1");
+            Console.WriteLine("Введите два числа для подсчета НОД:");
+            int x = int.Parse(Console.ReadLine());
+            int y = int.Parse(Console.ReadLine());
+            Console.WriteLine($"НОД чисел {x} и {y} = {NOD(x, y)}");
+
+            Console.WriteLine("Введите три числа для подсчета НОД:");
+            int x1 = int.Parse(Console.ReadLine());
+            int y1 = int.Parse(Console.ReadLine());
+            int z1 = int.Parse(Console.ReadLine());
+            Console.WriteLine($"НОД чисел {x}, {y} и {z1} = {NOD(x, y, z1)}");
         }
     }    
 }
