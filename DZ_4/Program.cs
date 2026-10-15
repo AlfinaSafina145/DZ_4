@@ -1,28 +1,26 @@
 ﻿using System;
-namespace Task5_1
+namespace TaskDZ2
 {
     class Program
     {
-        public static int GetMax(int a, int b)
+        public static int Fibonachi(int n)
         {
-            if (a > b)
+            if (n <= 2)
             {
-                return a;
+                return 1;
             }
-            else
-            {
-                return b;
-            }
+            return Fibonachi(n - 1) + Fibonachi(n - 2);
         }
         static void Main(string[] args)
         {
-            Console.Write("Введите первое число: ");
-            int num1 = int.Parse(Console.ReadLine());
-            Console.Write("Введите второе число: ");
-            int num2 = int.Parse(Console.ReadLine());
-            int result = GetMax(num1, num2);
-            Console.WriteLine($"Наибольшее число из {num1} и {num2} равно: {result}");
-            Console.ReadKey();
+            Console.WriteLine("Дз 2");
+            Console.Write("Введите число: ");
+            int num = int.Parse(Console.ReadLine());
+            Console.Write("Ряд Фибоначчи: ");
+            for (int i = 1; i <= num; i++)
+            {
+                Console.Write(Fibonachi(i) + " ");
+            }    
         }
     }    
 }
