@@ -1,28 +1,22 @@
 ﻿using System;
-namespace Task5_1
+namespace Task5_4
 {
     class Program
     {
-        public static int GetMax(int a, int b)
+        public static int Factorial(int num)
         {
-            if (a > b)
+            if (num == 0 || num == 1)
             {
-                return a;
+                return 1;
             }
-            else
-            {
-                return b;
-            }
+            return num * Factorial(num - 1);
         }
         static void Main(string[] args)
         {
-            Console.Write("Введите первое число: ");
-            int num1 = int.Parse(Console.ReadLine());
-            Console.Write("Введите второе число: ");
-            int num2 = int.Parse(Console.ReadLine());
-            int result = GetMax(num1, num2);
-            Console.WriteLine($"Наибольшее число из {num1} и {num2} равно: {result}");
-            Console.ReadKey();
+            Console.Write("Введите число: ");
+            int n = int.Parse(Console.ReadLine());
+            long res = Factorial(n);
+            Console.WriteLine($"Факториал {n} равен {res}");
         }
     }    
 }
