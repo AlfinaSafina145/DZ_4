@@ -1,28 +1,41 @@
 ﻿using System;
-namespace Task5_1
+namespace Task5_3
 {
     class Program
     {
-        public static int GetMax(int a, int b)
+        public static bool CalculateFactorial(int n, out long result)
         {
-            if (a > b)
+            result = 1;
+            try
             {
-                return a;
+                checked
+                {
+                    for (int i = 1; i <= n; i++)
+                    {
+                        result *= i;
+                    }
+                }
+                return true;
             }
-            else
+            catch (OverflowException)
             {
-                return b;
+                result = 0;
+                return false;
             }
         }
         static void Main(string[] args)
         {
-            Console.Write("Введите первое число: ");
-            int num1 = int.Parse(Console.ReadLine());
-            Console.Write("Введите второе число: ");
-            int num2 = int.Parse(Console.ReadLine());
-            int result = GetMax(num1, num2);
-            Console.WriteLine($"Наибольшее число из {num1} и {num2} равно: {result}");
-            Console.ReadKey();
+            Console.WriteLine("Упражнение 3\nВведите число:");
+            int num = int.Parse(Console.ReadLine());
+            bool fact = CalculateFactorial(num, out long result);
+            if (fact)
+            {
+                Console.WriteLine($"Факториал {num} равен {result}");
+            }
+            else
+            {
+                Console.WriteLine("Ошибка: Переполнение типа long!");
+            }
         }
     }    
 }
