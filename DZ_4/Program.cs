@@ -155,7 +155,7 @@ namespace Project
             Ded ded4 = new Ded("Илья", GrumpyLevel.Medium, new string[] { "Проститутки!" });
             Ded ded5 = new Ded("Артур", GrumpyLevel.Extreme, new string[] { "Дурак!", "Проститутки!", "Бестолочи!", "Негодники!", "Гады" });
             string[] badwords = { "Проститутки!", "Гады!" };
-            Console.WriteLine("Проверка дедов:\n");
+            Console.WriteLine("Проверка дедов:");
             int fines1 = ded1.CountBadWords(badwords);
             Console.WriteLine($"Дед {ded1.Name} (ворчливость: {ded1.Grumpy} {fines1} фингалов");
             int fines2 = ded2.CountBadWords(badwords);
